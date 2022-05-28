@@ -7,7 +7,7 @@
 
 //Queue and its functions are not implemented
 
-void BFS(int G, int s) {
+void BFS(int G[][], int s) {
     int color[3] = {0, 0, 0}; // White = 0; Gray = 1; Black = 2;
     int dist[3] = {1000, 1000, 1000};
     int pred[3] = {NULL, NULL, NULL};
