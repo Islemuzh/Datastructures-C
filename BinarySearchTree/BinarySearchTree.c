@@ -134,3 +134,41 @@ int main() {
 
     return 0;
 }
+
+//extras
+
+int distanceToRoot(struct TreeNode* root, int val) {
+    if(root == NULL) {
+        return 0; // empty tree
+    }
+
+    struct TreeNode* current = root;
+
+    int i = 0;
+    while(current != NULL){
+        if(current->val == val) {
+            break;
+        } else if (val > current->val) {
+            current = current->right;
+        } else {
+            current = current->left;
+        }
+        i++;
+    }
+
+    return i;
+
+}
+
+
+struct TreeNode* lowCmnAnc(struct TreeNode* root, struct TreeNode* n1, struct TreeNode* n2) {
+    if(root == NULL) { return NULL; }
+    if(n1->val < root->val && n2->val < root->val) {
+        return lowCmnAnc(root->left, n1, n2);
+    }
+    if(n1->val > root->val && n2->val > root->val) {
+        return lowCmnAnc(root->right, n1, n2);
+    }
+
+    return root;
+}
