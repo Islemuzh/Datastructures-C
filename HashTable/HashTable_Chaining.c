@@ -3,6 +3,13 @@
 #include <stdlib.h>
 #include <time.h>
 
+/*----------------------------------------------------------------
+|   Hashing with chaining
+|
+|
+*----------------------------------------------------------------*/
+
+
 #define m 365
 
 struct Node {
@@ -70,16 +77,20 @@ int hash(int key) {
     return key % m;
 }
 
-void insertHT(int key, int value) {
-    HT[hash(key)] = insertList(HT[hash(key)], value);
+void insertHT(int value) {
+    HT[hash(value)] = insertList(HT[hash(value)], value);
 }
 
+//sets pointer to NULL, but nodes are still in memory, would have to free() all
 void clearHT() {
     int i;
     for (i = 0; i < m; i++) {
         HT[i] = NULL;
     }
 }
+
+
+// exercise
 
 int find_num_shared_birthday() {
     int i = 0;
@@ -114,33 +125,27 @@ int find_num_people_with_shared_birthday() {
 int main() {
 
     srand(time(NULL));
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
-    insertHT(rand(), rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
+    insertHT(rand());
     printHashTable();
     printf("%d\n", find_num_people_with_shared_birthday());
     printf("%d\n", find_num_shared_birthday());

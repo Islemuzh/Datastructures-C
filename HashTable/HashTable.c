@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <math.h>
 
+/*----------------------------------------------------------------
+|   Double Hashing
+|
+|
+*----------------------------------------------------------------*/
 
 
 #define m 7  //Change value m to size of hash table
