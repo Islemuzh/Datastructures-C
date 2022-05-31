@@ -63,3 +63,39 @@ void main(){
  
     return heapSort(A, n);
 }
+
+
+//extras
+
+void heapify_d(int A[], int i, int n, int d) {
+    int max = i;
+
+    // checking d children nodes from right to left
+    for(int j = d*i+d; j > d*i; j--) {
+        if(j < n && A[max] < A[j]) {
+            max = j;
+        }
+    }
+
+    if(max != i) {
+        int tmp = A[i];
+        A[i] = A[max];
+        A[max] = tmp;
+
+        heapify_d(A, max, n, d);
+    }
+
+}
+
+
+void buildMaxHeap(int A[], int n) {
+    for(int i = (n/2)-1; i >= 0; i--) {
+        heapify(A,i,n);
+    }
+}
+
+void buildMaxHeap_d(int A[], int n, int d) {
+    for(int i = (n/d)-1; i >= 0; i--) {
+        heapify_d(A, i, n, d);
+    }
+}
