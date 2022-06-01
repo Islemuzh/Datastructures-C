@@ -26,7 +26,7 @@ int lcs(char* s1, char* s2, int x, int y) {
 			if (i == 0 || j == 0) {
 				lookup_table[i][j] = 0;
 			}
-			else if (s1[i-1] == s2[j-1]) {
+			else if (s1[i] == s2[j]) {
 				lookup_table[i][j] = lookup_table[i-1][j-1] + 1;
 			}
 			else {
